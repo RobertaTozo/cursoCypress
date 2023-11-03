@@ -2,7 +2,7 @@
 // https://on.cypress.io/writing-first-test
 /// <reference types="Cypress" />
 
-const { functionsIn } = require("cypress/types/lodash")
+//const { functionsIn } = require("cypress/types/lodash")
 
 describe('Central de Atendimento ao Cliente TAT',function(){
 beforeEach(function() {
@@ -155,6 +155,6 @@ beforeEach(function() {
               expect($input[0].files[0].name).to.equal('example.json')
           })
      })
-
+    
 
       })

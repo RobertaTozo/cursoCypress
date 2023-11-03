@@ -1,4 +1,5 @@
-{"scripts": {
-    "cy:open": "cypress open",
-    "test": "cypress run"
-  }}
+{
+    "pluginsFile": false,
+    "viewportHeight": 880,
+    "viewportWidth": 1280
+  }
