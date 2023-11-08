@@ -2,7 +2,6 @@
 // https://on.cypress.io/writing-first-test
 /// <reference types="Cypress" />
 
-//const { functionsIn } = require("cypress/types/lodash")
 
 describe('Central de Atendimento ao Cliente TAT',function(){
 beforeEach(function() {
@@ -155,6 +154,29 @@ beforeEach(function() {
               expect($input[0].files[0].name).to.equal('example.json')
           })
      })
-       ////sddsad sad
+        it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias',function(){
+          cy.fixture('example.json').as('sampleFile')
+          cy.get('input[type="file"]')
+          .selectFile('@sampleFile')
+          .should(function($input){
+            expect($input[0].files[0].name).to.equal('example.json')
+          })
+        })
+        
+        it.only('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique',function(){
+          cy.get('#privacy a')
+            .should('have.attr',  'target', '_blank')
+
+        })        
+          //// carrega a página de politica de privacidade para abrir na mesma aba. 
+        it.only('acessa a página da política de privacidade removendo o target e então clicando no link',function(){
+          cy.get('#privacy a')
+          .invoke('removeAttr','target')
+          .click()
+          
+          cy.contains('Talking About Testing').should('be.visible')
+        })  
+
+      
 
       })
